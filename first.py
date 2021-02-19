@@ -1,11 +1,25 @@
-weight = int(input("Enter your weight "))
-height = int(input("Enter your height "))
-tmp = weight / (height**2)
-if tmp < 0.00185:
- print ("Underweight")
-if tmp >= 0.00185 and tmp < 0.0025:
- print ("Normal")
-if tmp >= 0.0025 and tmp < 0.003:
- print ("Overweight")
-if tmp > 0.003:
- print ("Obesity")
+koloda = [6,7,8,9,10,2,3,4,11] * 4
+import random
+random.shuffle(koloda)
+print('Поиграем в очко?')
+count = 0
+
+while True:
+    choice = input('Будете брать карту? y/n\n')
+    if choice == 'y':
+        current = koloda.pop()
+        print('Вам попалась карта достоинством %d' %current)
+        count += current
+        if count > 21:
+            print('Извините, но вы проиграли')
+            break
+        elif count == 21:
+            print('Поздравляю, вы набрали 21!')
+            break
+        else:
+            print('У вас %d очков.' %count)
+    elif choice == 'n':
+        print('У вас %d очков и вы закончили игру.' %count)
+        break
+
+print('До новых встреч!')
